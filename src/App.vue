@@ -84,7 +84,7 @@ export default {
       },
       articleDeleted: {
           title:'Deleted',
-          message: 'Article remove',
+          message: 'Article removed',
           type: 'error'
       }
     },
