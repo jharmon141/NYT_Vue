@@ -4,6 +4,7 @@
 
             <div class="tabs is-right">
                 <ul>
+                    <router-link v-if="searched" to="/results" tag="li" active-class="active" exact><a>Results</a></router-link>
                     <li class="is-active"><a>Search</a></li>
                     <router-link to="/saved" tag="li" active-class="active" exact><a>Saved Articles</a></router-link>
                     <li><a>Log Out</a></li>
@@ -49,6 +50,10 @@ export default {
         start: '',
         end: ''
     }),
+
+    props: {
+        searched: Boolean,
+    },
 
     methods: {
 

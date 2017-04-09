@@ -2,6 +2,7 @@
     <div class="Box">
         <div class="tabs is-right">
             <ul>
+                <li class="is-active"><a>Results</a></li>
                 <router-link to="/search" tag="li" active-class="active" exact><a>Search</a></router-link>
                 <router-link to="/saved" tag="li" active-class="active" exact><a>Saved Articles</a></router-link>
                 <li><a>Log Out</a></li>
@@ -35,6 +36,7 @@ export default {
         results: {},
         loading: 0,
     },
+
 
     methods: {
         save(item) {

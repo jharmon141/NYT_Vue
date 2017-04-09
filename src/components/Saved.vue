@@ -3,6 +3,7 @@
     <div class="Box">
         <div class="tabs is-right">
             <ul>
+                <router-link v-if="searched" to="/results" tag="li" active-class="active" exact><a>Results</a></router-link>
                 <router-link to="/search" tag="li" active-class="active" exact><a>Search</a></router-link>
                 <li class="is-active"><a>Saved Articles</a></li>
                 <li><a>Log Out</a></li>
@@ -35,6 +36,7 @@ export default {
     props: {
         allArticles: {},
         loading: 0,
+        searched: Boolean,
     },
 
     methods:{

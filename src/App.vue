@@ -15,7 +15,7 @@
         <section class="container">
 
             <transition name="fade" mode="out-in">
-            <router-view :results="results" :allArticles="allArticles"></router-view>
+            <router-view :searched="searched" :results="results" :allArticles="allArticles"></router-view>
             </transition>
 
         </section>
@@ -72,16 +72,30 @@ export default {
     data: () => ({
         allArticles: {},
         loading: 0,
+        searched: false,
         results: []
     }),
 
+    notifications: {
+      saveSuccess: {
+        title: 'Success!',
+        message: 'Article added to Saved Articles',
+        type: 'success' //Default: 'info', also you can use VueNotifications.type.error instead of 'error'
+      },
+      articleDeleted: {
+          title:'Deleted',
+          message: 'Article remove',
+          type: 'error'
+      }
+    },
 
     methods:{
 
        setResults(data) {
 
-            this.results = data
-            this.$router.push({ name: 'results' });
+           this.results = data
+           this.searched = true
+           this.$router.push({ name: 'results' });
 
         },
 
@@ -125,6 +139,7 @@ export default {
             }).then((data) => {
                 // Result
                 console.log(data)
+                this.articleDeleted()
             }).catch((error) => {
                 // Error
                 console.error(error)
@@ -155,6 +170,7 @@ export default {
             }).then((data) => {
                 // Result
                 console.log(data)
+                this.saveSuccess()
             }).catch((error) => {
                 // Error
                 console.error(error)
