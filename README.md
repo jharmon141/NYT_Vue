@@ -1,6 +1,6 @@
-# nyt_vue_2.0
+# NYT_Vue_2.0
 
-> Vue, Apollo/GraphQL, Auth0, example
+> New York Times article search and save app made with Vue.js and GraphQL
 
 ## Build Setup
 
@@ -14,8 +14,10 @@ npm run dev
 # build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+# simple deploy to heroku 
+heroku create
+heroku buildpacks:set heroku/nodejs
+npm run deploy 
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
