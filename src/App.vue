@@ -112,8 +112,6 @@ export default {
                     dataResponse.push(response.data.response.docs[i])
                 }
 
-                console.log(dataResponse)
-
             this.setResults(dataResponse)
 
             })
@@ -138,7 +136,6 @@ export default {
                 }
             }).then((data) => {
                 // Result
-                console.log(data)
                 this.articleDeleted()
             }).catch((error) => {
                 // Error
@@ -169,7 +166,6 @@ export default {
                 },
             }).then((data) => {
                 // Result
-                console.log(data)
                 this.saveSuccess()
             }).catch((error) => {
                 // Error
