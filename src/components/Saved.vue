@@ -3,9 +3,24 @@
     <div class="Box">
         <div class="tabs is-right">
             <ul>
-                <router-link to="/search" tag="li" active-class="active" exact><a>Search</a></router-link>
-                <router-link v-if="searched" to="/results" tag="li" active-class="active" exact><a>Results</a></router-link>
-                <li class="is-active"><a>Saved Articles</a></li>
+                <router-link 
+                    to="/search" 
+                    tag="li" 
+                    active-class="active" 
+                    exact>
+                    <a>Search</a>
+                </router-link>
+                <router-link 
+                    v-if="searched" 
+                    to="/results" 
+                    tag="li" 
+                    active-class="active" 
+                    exact>
+                    <a>Results</a>
+                </router-link>
+                <li class="is-active">
+                    <a>Saved Articles</a>
+                </li>
             </ul>
         </div>
 
@@ -33,37 +48,38 @@
 export default {
     // Local state
     props: {
-        allArticles: {},
-        loading: 0,
+        allArticles: Array,
+        loading: Number,
         searched: Boolean,
+        delArticle: Function
     },
 
     methods:{
 
         remove(article) {
-            this.$parent.delArticle(article)
+            this.delArticle(article)
         }
         
     },
 }
-    </script>
+</script>
 
-    <style scoped>
+<style scoped>
 
-    /* Enter and leave animations can use different */
-    /* durations and timing functions.              */
-    .slide-fade-enter-active {
-        transition: all .1s ease;
-    }
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+    transition: all .1s ease;
+}
 
-    .slide-fade-leave-active {
-        transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-    }
+.slide-fade-leave-active {
+    transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
 
-    .slide-fade-enter, .slide-fade-leave-to
-    /* .slide-fade-leave-active for <2.1.8 */ {
-    transform: translateX(10px);
-    opacity: 0;
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for <2.1.8 */ {
+transform: translateX(10px);
+opacity: 0;
 }
 </style>
 

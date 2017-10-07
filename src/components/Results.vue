@@ -16,7 +16,7 @@
                 <p>Date Published: {{result.pub_date}}</p>
             </div>
             <div class="column auto">
-                    <button v-on:click="save(result)" class="button is-primary">Save</button>
+                    <button v-on:click="handleSave(result)" class="button is-primary">Save</button>
                     <a v-bind:href="result.web_url" target="_blank"><button class="button">View Article</button></a>
             </div>
 
@@ -32,33 +32,34 @@ import { mapState } from 'vuex'
 export default {
 
     props: {
-        results: {},
-        loading: 0,
+        results: Array,
+        loading: Number,
+        save: Function
     },
 
 
     methods: {
-        save(item) {
-            this.$parent.save(item)
+        handleSave(item) {
+            this.save(item)
         }
     }
 }
 
 
-    </script>
+</script>
 
-    <style>
+<style>
 
-    .is-three-quarters {
-        text-align: start;
-    }
+.is-three-quarters {
+    text-align: start;
+}
 
-    .title.is-3 {
-        margin-bottom: 50px;
-    }
+.title.is-3 {
+    margin-bottom: 50px;
+}
 
-    p {
-        text-align: start;
-    }
+p {
+    text-align: start;
+}
 
-    </style>
+</style>

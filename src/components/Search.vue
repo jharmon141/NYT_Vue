@@ -5,8 +5,21 @@
             <div class="tabs is-right">
                 <ul>
                     <li class="is-active"><a>Search</a></li>
-                    <router-link v-if="searched" to="/results" tag="li" active-class="active" exact><a>Results</a></router-link>
-                    <router-link to="/saved" tag="li" active-class="active" exact><a>Saved Articles</a></router-link>
+                    <router-link 
+                        v-if="searched" 
+                        to="/results" 
+                        tag="li" 
+                        active-class="active" 
+                        exact>
+                        <a>Results</a>
+                    </router-link>
+                    <router-link 
+                        to="/saved" 
+                        tag="li" 
+                        active-class="active" 
+                        exact>
+                        <a>Saved Articles</a>
+                    </router-link>
                 </ul>
             </div>
 
@@ -30,7 +43,10 @@
 
                 <br />
 
-                <button class="button is-primary is-outlined" @click="handleSearch">Submit</button>
+                <button 
+                    class="button is-primary is-outlined" 
+                    @click="handleSearch">Submit
+                </button>
 
             </div>
 
@@ -52,40 +68,38 @@ export default {
 
     props: {
         searched: Boolean,
+        runQuery: Function
     },
 
     methods: {
 
         handleSearch() {
-
             let queryParams = {}
 
             queryParams.topic = this.topic 
             queryParams.start = this.start
             queryParams.end = this.end
 
-            this.$parent.runQuery(queryParams)
+            this.runQuery(queryParams)
         }
-
     }
-
 }
 
 
-    </script>
+</script>
 
-    <style>
-    .Box {
-        text-align: center;
-        margin-bottom: 90px;
-    }
+<style>
+.Box {
+    text-align: center;
+    margin-bottom: 90px;
+}
 
-    input {
-        margin-bottom: 25px;
-        height: 30px;
-        width: 33%;
-        font-size: 18px;
-        text-align: center;
-    }
+input {
+    margin-bottom: 25px;
+    height: 30px;
+    width: 33%;
+    font-size: 18px;
+    text-align: center;
+}
 
-    </style>
+</style>

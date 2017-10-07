@@ -11,21 +11,6 @@ const networkInterface = createNetworkInterface({
   uri: 'https://api.graph.cool/simple/v1/cj12e83r4sp2601381hwsabe1',
 })
 
-// // use the auth0IdToken in localStorage for authorized requests
-// networkInterface.use([{
-//   applyMiddleware (req, next) {
-//     if (!req.options.headers) {
-//       req.options.headers = {}
-//     }
-
-//     // get the authentication token from local storage if it exists
-//     if (localStorage.getItem('auth0IdToken')) {
-//       req.options.headers.authorization = `Bearer ${localStorage.getItem('auth0IdToken')}`
-//     }
-//     next()
-//   },
-// }])
-
 
 // If using mini-toastr, provide additional configuration
 const toastTypes = {

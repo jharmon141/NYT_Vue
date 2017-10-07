@@ -15,7 +15,7 @@
         <section class="container">
 
             <transition name="fade" mode="out-in">
-            <router-view :searched="searched" :results="results" :allArticles="allArticles"></router-view>
+                <router-view v-bind="{runQuery, save, delArticle, searched, results, allArticles}"></router-view>
             </transition>
 
         </section>
@@ -100,10 +100,7 @@ export default {
         },
 
         runQuery(searchParams)  {
-
-
             let queryURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=60ef363d30eb4fc79c853a9acb3cc5b6&q=${searchParams.topic}&begin_date=${searchParams.start}0101&end_date=${searchParams.end}0101`
-
 
             axios.get(queryURL).then((response) => {
                 let dataResponse = []
@@ -113,7 +110,6 @@ export default {
                 }
 
             this.setResults(dataResponse)
-
             })
         },
 
@@ -183,49 +179,50 @@ export default {
     }
 
 }
-    </script>
+</script>
 
-    <style>
 
-    p.level-item {
-        text-align: start;
-    }
+<style>
 
-    #app {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        color: #2c3e50;
-    }
+p.level-item {
+    text-align: start;
+}
 
-    .hero {
-        margin-bottom: 75px;
-    }
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+}
 
-    h1, h2 {
-        font-weight: normal;
-    }
+.hero {
+    margin-bottom: 75px;
+}
 
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
+h1, h2 {
+    font-weight: normal;
+}
 
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
+ul {
+    list-style-type: none;
+    padding: 0;
+}
 
-    a {
-        color: #42b983;
-    }
+li {
+    display: inline-block;
+    margin: 0 10px;
+}
 
-    .fade-enter-active, .fade-leave-active {
-        transition: all .2s ease;
-    }
-    .fade-enter, .fade-leave-active {
-        opacity: 0;
-    }
+a {
+    color: #42b983;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: all .2s ease;
+}
+.fade-enter, .fade-leave-active {
+    opacity: 0;
+}
 
 </style>
-    <style src="bulma/css/bulma.css"></style>
+<style src="bulma/css/bulma.css"></style>
